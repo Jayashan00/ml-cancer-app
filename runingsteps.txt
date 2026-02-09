@@ -1,0 +1,41 @@
+🚀 STEP 1: Run Backend (FastAPI)
+cd backend
+pip install fastapi uvicorn joblib numpy scikit-learn
+
+
+Run server:
+
+uvicorn main:app --reload
+
+
+Check:
+
+http://127.0.0.1:8000
+
+You should see:
+
+{"message":"Breast Cancer Diagnosis API is running!"}
+
+🚀 STEP 2: Run Frontend (React)
+cd frontend
+npm install
+npm run dev
+
+
+Open browser:
+
+http://localhost:5173
+
+🚀 STEP 3: Use the System
+
+Adjust sliders
+
+Click Get Prediction
+
+See:
+
+Benign / Malignant
+
+Confidence %
+
+🎉 Full pipeline working
