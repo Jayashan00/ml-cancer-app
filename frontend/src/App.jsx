@@ -4,7 +4,7 @@ import axios from 'axios';
 import PredictionForm from './components/PredictionForm';
 import ResultDisplay from './components/ResultDisplay';
 
-// This is the default state for all 30 sliders, based on the dataset's 'mean' values
+
 const initialFormData = {
   radius_mean: 14.12, texture_mean: 19.28, perimeter_mean: 91.96, area_mean: 654.88,
   smoothness_mean: 0.096, compactness_mean: 0.104, concavity_mean: 0.088,
