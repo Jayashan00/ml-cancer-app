@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import PredictionForm from './components/PredictionForm';
 import ResultDisplay from './components/ResultDisplay';
+import ModelMetrics from './components/ModelMetrics';
+import ExportResults from './components/ExportResults';
+import RetrainModel from './components/RetrainModel';
 
 // This is the default state for all 30 sliders, based on the dataset's 'mean' values
 const initialFormData = {
@@ -70,6 +73,8 @@ function App() {
       </header>
 
       <main>
+        <ModelMetrics />
+        
         <PredictionForm
           formData={formData}
           handleChange={handleChange}
@@ -81,6 +86,12 @@ function App() {
 
         {/* Show the result card (or loading) */}
         <ResultDisplay result={result} isLoading={isLoading} />
+        
+        {/* Show export results component */}
+        <ExportResults />
+
+        {/* Show retrain model component */}
+        <RetrainModel />
       </main>
     </>
   );

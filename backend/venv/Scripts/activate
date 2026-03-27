@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:\EC5203-MLProject\backend\venv"
+VIRTUAL_ENV="D:\Projects\ML Project\ml-cancer-app\backend\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
