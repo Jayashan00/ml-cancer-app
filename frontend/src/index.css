@@ -157,3 +157,206 @@
 	background-color: var(--color-danger-bg);
 	color: var(--color-danger);
   }
+
+  /* --- Model Metrics Card --- */
+  .metrics-card {
+	background-color: var(--color-bg-light);
+	padding: 1.5rem;
+	border-radius: 8px;
+	margin-bottom: 2rem;
+	border: 2px solid var(--color-primary);
+  }
+  .metrics-card h3 {
+	margin-top: 0;
+	color: var(--color-primary);
+	font-size: 1.3em;
+	margin-bottom: 1rem;
+  }
+  .metrics-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	gap: 1rem;
+  }
+  .metric-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 1rem;
+	background-color: var(--color-bg);
+	border-radius: 6px;
+	border: 1px solid var(--color-border);
+  }
+  .metric-label {
+	font-size: 0.9em;
+	color: rgba(255, 255, 255, 0.6);
+	margin-bottom: 0.5rem;
+	font-weight: 500;
+  }
+  .metric-value {
+	font-size: 1.6em;
+	color: var(--color-success);
+	font-weight: bold;
+	font-family: monospace;
+  }
+
+  /* --- Export Results Card --- */
+  .export-card {
+	background-color: var(--color-bg-light);
+	padding: 1.5rem;
+	border-radius: 8px;
+	margin-top: 2rem;
+	border: 2px solid var(--color-border);
+  }
+  .export-card h3 {
+	margin-top: 0;
+	font-size: 1.2em;
+	margin-bottom: 1.5rem;
+  }
+  .export-buttons {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	gap: 1rem;
+	margin-bottom: 1rem;
+  }
+  .export-btn {
+	padding: 0.8em 1.5em;
+	font-size: 0.95em;
+	font-weight: 500;
+	border: 2px solid;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: all 0.25s;
+	font-family: inherit;
+	background-color: transparent;
+  }
+  .export-btn.csv-btn {
+	color: #4ecdc4;
+	border-color: #4ecdc4;
+  }
+  .export-btn.csv-btn:hover:not(:disabled) {
+	background-color: rgba(78, 205, 196, 0.1);
+	border-color: #5eddd4;
+  }
+  .export-btn.json-btn {
+	color: #95e1d3;
+	border-color: #95e1d3;
+  }
+  .export-btn.json-btn:hover:not(:disabled) {
+	background-color: rgba(149, 225, 211, 0.1);
+	border-color: #a5f1e3;
+  }
+  .export-btn:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+  }
+  .export-message {
+	text-align: center;
+	padding: 0.8rem;
+	border-radius: 4px;
+	background-color: var(--color-bg);
+	color: var(--color-success);
+	font-size: 0.95em;
+  }
+
+  /* --- Updated Slider Info --- */
+  .slider-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.5rem;
+	font-size: 0.85em;
+	gap: 1rem;
+  }
+  .range-label {
+	color: rgba(255, 255, 255, 0.7);
+	font-family: monospace;
+  }
+  .slider-value {
+	min-width: 60px;
+	text-align: right;
+	font-family: monospace;
+	font-weight: 500;
+  }
+
+  /* --- Retrain Model Card --- */
+  .retrain-card {
+	background-color: var(--color-bg-light);
+	padding: 1.5rem;
+	border-radius: 8px;
+	margin-top: 2rem;
+	border: 2px solid #ff9800;
+  }
+  .retrain-card h3 {
+	margin-top: 0;
+	color: #ff9800;
+	font-size: 1.2em;
+	margin-bottom: 0.5rem;
+  }
+  .retrain-info {
+	font-size: 0.9em;
+	color: rgba(255, 255, 255, 0.7);
+	margin-bottom: 1rem;
+  }
+  .file-input-group {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	gap: 1rem;
+	margin-bottom: 1rem;
+  }
+  .file-input {
+	padding: 0.8em;
+	background-color: var(--color-bg);
+	border: 1px solid var(--color-border);
+	border-radius: 6px;
+	color: var(--color-text);
+	cursor: pointer;
+  }
+  .file-input:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+  }
+  .retrain-btn {
+	padding: 0.8em 1.5em;
+	background-color: #ff9800;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background-color 0.25s;
+  }
+  .retrain-btn:hover:not(:disabled) {
+	background-color: #e68900;
+  }
+  .retrain-btn:disabled {
+	opacity: 0.5;
+	cursor: not-allowed;
+  }
+  .retrain-message {
+	padding: 1rem;
+	border-radius: 6px;
+	margin-top: 1rem;
+	font-weight: 500;
+  }
+  .retrain-message.success {
+	background-color: rgba(66, 184, 131, 0.2);
+	color: var(--color-success);
+	border: 1px solid var(--color-success);
+  }
+  .retrain-message.error {
+	background-color: rgba(255, 106, 106, 0.2);
+	color: var(--color-danger);
+	border: 1px solid var(--color-danger);
+  }
+  .retrain-metrics {
+	margin-top: 1.5rem;
+	padding-top: 1.5rem;
+	border-top: 1px solid var(--color-border);
+  }
+  .retrain-metrics h4 {
+	margin-top: 0;
+	color: var(--color-success);
+	font-size: 1em;
+	margin-bottom: 1rem;
+  }
+

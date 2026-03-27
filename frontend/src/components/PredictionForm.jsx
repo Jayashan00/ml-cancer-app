@@ -1,10 +1,14 @@
 // src/components/PredictionForm.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // A helper component to avoid repeating slider code
 const SliderInput = ({ name, label, value, onChange, min, max, step }) => (
   <div className="form-group">
     <label htmlFor={name}>{label}</label>
+    <div className="slider-info">
+      <span className="range-label">Range: {min} - {max}</span>
+      <span className="slider-value">{parseFloat(value).toFixed(4)}</span>
+    </div>
     <div className="slider-container">
       <input
         type="range"
@@ -16,7 +20,6 @@ const SliderInput = ({ name, label, value, onChange, min, max, step }) => (
         value={value}
         onChange={onChange}
       />
-      <span className="slider-value">{parseFloat(value).toFixed(4)}</span>
     </div>
   </div>
 );
@@ -64,20 +67,47 @@ const features = {
 
 function PredictionForm({ formData, handleChange, handleSubmit }) {
   const [activeTab, setActiveTab] = useState('mean');
+  const [featureRanges, setFeatureRanges] = useState({});
+  const [isApiLoaded, setIsApiLoaded] = useState(false);
+
+  // Fetch feature ranges from backend (non-blocking)
+  useEffect(() => {
+    const fetchRanges = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/feature-ranges');
+        if (response.ok) {
+          const data = await response.json();
+          setFeatureRanges(data);
+          setIsApiLoaded(true);
+        }
+      } catch (error) {
+        console.error('Using hardcoded ranges:', error);
+      }
+    };
+
+    // Try to fetch but don't block rendering
+    fetchRanges();
+  }, []);
 
   const renderSliders = (type) => {
-    return features[type].map(feature => (
-      <SliderInput
-        key={feature.name}
-        name={feature.name}
-        label={feature.label}
-        value={formData[feature.name]}
-        onChange={handleChange}
-        min={feature.min}
-        max={feature.max}
-        step={feature.step}
-      />
-    ));
+    return features[type].map(feature => {
+      const range = featureRanges && featureRanges[feature.name];
+      const min = range ? range.min : feature.min;
+      const max = range ? range.max : feature.max;
+
+      return (
+        <SliderInput
+          key={feature.name}
+          name={feature.name}
+          label={feature.label}
+          value={formData[feature.name]}
+          onChange={handleChange}
+          min={min}
+          max={max}
+          step={feature.step}
+        />
+      );
+    });
   };
 
   return (
