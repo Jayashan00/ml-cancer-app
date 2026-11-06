@@ -30,11 +30,11 @@
     "schema/*.json"
   ],
   "scripts": {
-    "build": "node init && jlpm build:lib && jlpm build:labextension:dev",
-    "build:labextension": "node init && jupyter labextension build .",
-    "build:labextension:dev": "node init && jupyter labextension build --development True .",
-    "build:lib": "node init && tsc -b",
-    "build:prod": "node init && jlpm build:lib && jlpm build:labextension",
+    "build": "jlpm build:lib && jlpm build:labextension:dev",
+    "build:labextension": "jupyter labextension build .",
+    "build:labextension:dev": "jupyter labextension build --development True .",
+    "build:lib": "tsc -b",
+    "build:prod": "jlpm build:lib && jlpm build:labextension",
     "clean": "jlpm clean:lib",
     "clean:all": "jlpm clean:lib && jlpm clean:labextension",
     "clean:labextension": "rimraf labextension",

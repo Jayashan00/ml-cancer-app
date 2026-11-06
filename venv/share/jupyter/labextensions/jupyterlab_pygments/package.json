@@ -29,12 +29,12 @@
     "url": "https://github.com/jupyterlab/jupyterlab_pygments.git"
   },
   "scripts": {
-    "build": "node init && jlpm build:css && jlpm build:lib && jlpm build:labextension:dev",
-    "build:css": "node init && python generate_css.py",
-    "build:labextension": "node init && jupyter labextension build .",
-    "build:labextension:dev": "node init && jupyter labextension build --development True .",
-    "build:lib": "node init && tsc",
-    "build:prod": "node init && jlpm clean && jlpm build:css && jlpm build:lib && jlpm build:labextension",
+    "build": "jlpm build:css && jlpm build:lib && jlpm build:labextension:dev",
+    "build:css": "python generate_css.py",
+    "build:labextension": "jupyter labextension build .",
+    "build:labextension:dev": "jupyter labextension build --development True .",
+    "build:lib": "tsc",
+    "build:prod": "jlpm clean && jlpm build:css && jlpm build:lib && jlpm build:labextension",
     "clean": "jlpm clean:lib",
     "clean:all": "jlpm clean:lib && jlpm clean:labextension && jlpm clean:lintcache",
     "clean:labextension": "rimraf jupyterlab_pygments/labextension",
